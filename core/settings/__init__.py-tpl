@@ -1,0 +1,14 @@
+"""Settings for {{ project_name }}.
+
+Find most of your app's settings in base.py.
+Feel free to add additional modules and star-import them here.
+Remember that the order of imports dictates which modules may overwrite others!
+"""
+
+from .base import *
+
+try:
+    # You can override any setting easily by creating a `local_settings` module.
+    from .local_settings import *
+except ImportError:
+    pass
