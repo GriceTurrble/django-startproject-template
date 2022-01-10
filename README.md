@@ -12,6 +12,8 @@ Use the following command in place of your usual `django-admin startproject my_p
 django-admin start-project --template https://github.com/GriceTurrble/django-startproject-template/archive/template.zip my_project
 ```
 
+Note that this uses the `template` branch of this repo, **not** the `main` branch! See details below.
+
 ### Explanation
 
 When starting a new Django project, typically you would run the following:
