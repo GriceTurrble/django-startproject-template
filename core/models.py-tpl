@@ -1,0 +1,43 @@
+"""Define project-wide abstract base models here!
+
+See: https://docs.djangoproject.com/en/4.0/topics/db/models/#abstract-base-classes
+
+`BaseModel` is a good place to add common fields every other model should have.
+Simply add those fields to the BaseModel definition, then inherit from it:
+
+    from core.models import BaseModel
+
+    class MyModel(BaseModel):
+        ...
+
+`UUIDPrimaryKeyModel` simply replaces the default `id`, which uses AutoField,
+with a unique UUID field
+(https://docs.djangoproject.com/en/4.0/ref/models/fields/#uuidfield).
+"""
+
+import uuid
+
+from django.db import models
+
+
+class BaseModel(models.Model):
+    """Common model that all project models inherit to share functionality."""
+
+    # Have common fields every model in your project should include?
+    # Write them here, then use this model as the base:
+
+    class Meta:
+        abstract = True
+
+
+class UUIDPrimaryKeyModel(BaseModel):
+    """Uses a UUID for primary key instead of an AutoField."""
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,  # Don't use parentheses!
+        editable=False,
+    )
+
+    class Meta:
+        abstract = True
